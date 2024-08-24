@@ -5,14 +5,15 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 public class CustomAuthenticationProvider implements AuthenticationProvider {
 
-    private final DefaultUserDetailsService service;
+    private final UserDetailsService service;
     private final PasswordEncoder encoder;
 
-    public CustomAuthenticationProvider(DefaultUserDetailsService service, PasswordEncoder encoder) {
+    public CustomAuthenticationProvider(UserDetailsService service, PasswordEncoder encoder) {
         this.service = service;
         this.encoder = encoder;
     }
